@@ -9,18 +9,18 @@ spec:
   ingressClassName: nginx
 
   tls:
-  - hosts:
-    - apache.local
-    secretName: apache-tls
+    - hosts:
+        - apache.local
+      secretName: apache-tls
 
   rules:
-  - host: apache.local
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: apache-helm
-            port:
-              number: 80
+    - host: apache.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apache-helm
+                port:
+                  number: 80
