@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-helm
+spec:
+  selector:
+    app: apache-helm
+  ports:
+  - port: 80
+    targetPort: 80

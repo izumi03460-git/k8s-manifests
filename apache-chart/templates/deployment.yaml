@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-helm
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: apache-helm
+  template:
+    metadata:
+      labels:
+        app: apache-helm
+    spec:
+      containers:
+      - name: apache
+        image: {{ .Values.image.repository }}
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
