@@ -10,11 +10,11 @@ spec:
 
   tls:
     - hosts:
-        - apache.local
+        - apache-helm.local
       secretName: apache-tls
 
   rules:
-    - host: apache.local
+    - host: apache-helm.local
       http:
         paths:
           - path: /
