@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apache
+  namespace: argocd
+spec:
+  project: default   # ←これが必要
+  source:
+    repoURL: https://github.com/izumi03460-git/k8s-manifests.git
+    targetRevision: main
+    path: apache
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}
